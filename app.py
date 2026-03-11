@@ -43,8 +43,8 @@ def check_guess(guess, secret):
         if g == secret:
             return "Win", "🎉 Correct!"
         if g > secret:
-            return "Too High", "📈 Go HIGHER!"
-        return "Too Low", "📉 Go LOWER!"
+            return "Too High", "📉 Go LOWER!"
+        return "Too Low", "📈 Go HIGHER!"
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
@@ -55,8 +55,6 @@ def update_score(current_score: int, outcome: str, attempt_number: int):
         return current_score + points
 
     if outcome == "Too High":
-        if attempt_number % 2 == 0:
-            return current_score + 5
         return current_score - 5
 
     if outcome == "Too Low":
@@ -143,6 +141,9 @@ if new_game:
 
 if st.session_state.status != "playing":
     if st.session_state.status == "won":
+        if st.session_state.get("show_balloons"):
+            st.balloons()
+            st.session_state.show_balloons = False
         st.success("You already won. Start a new game to play again.")
     else:
         st.error("Game over. Start a new game to try again.")
@@ -166,8 +167,7 @@ if submit:
 
         outcome, message = check_guess(guess_int, secret)
 
-        if show_hint:
-            st.warning(message)
+        st.session_state.hint = message if show_hint else None
 
         st.session_state.score = update_score(
             current_score=st.session_state.score,
@@ -176,7 +176,7 @@ if submit:
         )
 
         if outcome == "Win":
-            st.balloons()
+            st.session_state.show_balloons = True
             st.session_state.status = "won"
             st.success(
                 f"You won! The secret was {st.session_state.secret}. "
@@ -191,6 +191,9 @@ if submit:
                     f"Score: {st.session_state.score}"
                 )
         st.rerun()
+
+if st.session_state.get("hint"):
+    st.warning(st.session_state.hint)
 
 st.divider()
 st.caption("Built by an AI that claims this code is production-ready.")
