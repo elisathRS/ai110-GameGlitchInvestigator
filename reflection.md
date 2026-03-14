@@ -9,8 +9,8 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   The first time I run the game, it showed a number guessing game where the player guesses a number between 1 and 100 . It included an input box for guesses, buttons to submit or start a new game,   and    a debug section showing details like the secret number, attempts, and score.
   
 - List at least two concrete bugs you noticed at the start
-     1. The first time I played, I guessed the number 30, and the game told me to go lower even though the correct number was 51. I expected the game to tell me to go higher.
-     2. Hard mode seems easier than Normal mode. When I set the difficulty to Normal, the range was from 1 to 100. However, when I switched to Hard, the range changed to 1 to 50, which actually makes           the game easier.
+     1. The first time I played, I guessed the number 30, and the game told me to go lower even though the correct number was 51. I expected the          game to tell me to go higher.
+     2. Hard mode seems easier than Normal mode. When I set the difficulty to Normal, the range was from 1 to 100. However, when I switched to            Hard, the range changed to 1 to 50, which actually makes the game easier.
      3. Starting a new game resets the attempts to 0, but the initial session state sets the attempts to 1.
 
         
@@ -20,10 +20,15 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
   
-  Claude and Copilot
+     Claude and Copilot
   
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
+  
+    Claude advised moving important game logic functions like check_guess and parse_guess out of app.py and into logic_utils.py. This refactor        improved the structure of the code by separating the UI from the logic and allowed me to create focused pytest tests for the game mechanics.      I validated that the program works after  the change by running pytest and confirming that all tests passed.
+  
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
+  
+    To fix the problem where the history was not being updated, Copilot suggested wrapping the input field and button inside a form so they could     be submitted at the same time. However, this approach did not solve the issue. I verified this by accepting the suggestion and testing the        game again, and the problem remained.
 
 ---
 
@@ -31,10 +36,13 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 - How did you decide whether a bug was really fixed?
 
-  I ensured that my code passed all the tests in the provided test file, while also running it live and walking through the happy path to verify whether the issue was fixed or still recurring. Passing    the tests confirmed that my code handles the happy path correctly.
+  I ensured that my code passed all the tests in the provided test file, while also running it live and walking through the happy path to verify    whether the issue was fixed or still recurring. Passing    the tests confirmed that my code handles the happy path correctly.
   
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
+  
+  The test_winning_guess() pytest case failed initially due to a data type mismatch. The check_guess() function returns a tuple of two strings,     while the test expected only one string
+  
 - Did AI help you design or understand any tests? How?
 
 ---
