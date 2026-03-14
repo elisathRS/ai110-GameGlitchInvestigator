@@ -44,6 +44,8 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   The test_winning_guess() pytest case failed initially due to a data type mismatch. The check_guess() function returns a tuple of two strings,     while the test expected only one string
   
 - Did AI help you design or understand any tests? How?
+  
+  Claude was very helpful. For example, when I first ran the tests that came with the program, they didn’t pass. Claude helped me understand why    they failed and how to fix them.
 
 ---
 
@@ -68,11 +70,11 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
   - This could be a testing habit, a prompting strategy, or a way you used Git.
     
-    One habit I would like to keep is developing focused test cases for particular bugs. Doing this helped me make sure my solutions worked and avoided future errors.
+    One habit I would like to keep is developing focused test cases for particular bugs. Doing this helped me make sure my solutions worked and       avoided future errors.
     
 - What is one thing you would do differently next time you work with AI on a coding task?
 
-  The next time I collaborate with AI on a coding project, I will take extra time to analyze its recommendations before using them. Even though AI is helpful, some of its suggestions may be       repetitive or unnecessary.
+  The next time I collaborate with AI on a coding project, I will take extra time to analyze its recommendations before using them. Even though AI is helpful, some of its suggestions may be repetitive or unnecessary.
   
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
 
