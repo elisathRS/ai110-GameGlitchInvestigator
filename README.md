@@ -33,7 +33,7 @@ It wrote the code, ran away, and now the game is unplayable.
 
 - [X] Insert a screenshot of your fixed, winning game here
       
-   <img src="WinningGame.png" alt="Winning Game" width="200">
+   <img src="WinningGame.png" alt="Winning Game" width="600">
 
 ## 🚀 Stretch Features
 
